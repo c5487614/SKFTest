@@ -291,6 +291,11 @@ typedef ULONG (DEVAPI *SKF_EncryptUpdate)(HANDLE hKey, BYTE * pbData, ULONG ulDa
 typedef ULONG (DEVAPI *SKF_EncryptFinal)(HANDLE hKey, BYTE *pbEncryptedData, ULONG *ulEncryptedDataLen );
 typedef ULONG (DEVAPI *SKF_GenRandom) (DEVHANDLE hDev, BYTE *pbRandom,ULONG ulRandomLen);
 
+//added by Chunhui Chen 20160120
+typedef ULONG (DEVAPI *SKF_ChangePIN) (HAPPLICATION hApplication, ULONG ulPINType,LPSTR szOldPIN,LPSTR szNewPIN,ULONG* pulRetryCount);
+typedef ULONG (DEVAPI *SKF_GetPINInfo) (HAPPLICATION hApplication, ULONG ulPINType,ULONG* pulMaxRetryCount,ULONG* pulRemainRetryCount,BOOL* pbDefaultPIN);
+typedef ULONG (DEVAPI *SKF_VerifyPIN) (HAPPLICATION hApplication, ULONG ulPINType,LPSTR szPIN,ULONG* pulRetryCount);
+typedef ULONG (DEVAPI *SKF_UnblockPIN) (HAPPLICATION hApplication, LPSTR szAdminPIN,LPSTR szNewUserPIN,ULONG* pulRetryCount);
 #ifdef __cplusplus
 }       // Balance extern "C" above
 #endif

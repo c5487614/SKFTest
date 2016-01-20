@@ -109,6 +109,8 @@ TEST(SKF_ACCESS_CONTROL,SKF_ChangeDevAuthKey_Test)
 }
 TEST(SKF_ACCESS_CONTROL,SKF_ChangePIN_Test)
 {
+	//SKF_ChangePIN skf_changePIN = SKF_ChangePIN(GetProcAddress(hmodule,"SKF_ChangePIN"));
+	//skf_changePIN(
 	EXPECT_EQ(0,1);
 }
 TEST(SKF_ACCESS_CONTROL,SKF_GetPINInfo_Test)

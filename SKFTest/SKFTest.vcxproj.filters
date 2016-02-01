@@ -30,6 +30,9 @@
     <ClInclude Include="skf.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="skfapi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

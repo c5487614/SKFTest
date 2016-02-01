@@ -296,6 +296,74 @@ typedef ULONG (DEVAPI *SKF_ChangePIN) (HAPPLICATION hApplication, ULONG ulPINTyp
 typedef ULONG (DEVAPI *SKF_GetPINInfo) (HAPPLICATION hApplication, ULONG ulPINType,ULONG* pulMaxRetryCount,ULONG* pulRemainRetryCount,BOOL* pbDefaultPIN);
 typedef ULONG (DEVAPI *SKF_VerifyPIN) (HAPPLICATION hApplication, ULONG ulPINType,LPSTR szPIN,ULONG* pulRetryCount);
 typedef ULONG (DEVAPI *SKF_UnblockPIN) (HAPPLICATION hApplication, LPSTR szAdminPIN,LPSTR szNewUserPIN,ULONG* pulRetryCount);
+/*
+*	清除应用当前的安全状态
+*	hApplication	[IN]应用句柄
+*/
+typedef ULONG (DEVAPI *SKF_ClearSecureState) (HAPPLICATION hApplication);
+/************************************************************************/
+/*  4. 文件管理				                                            */
+/*	SKF_CreateFile														*/
+/*	SKF_DeleteFile														*/
+/*	SKF_EnumFiles														*/
+/*	SKF_GetFileInfo														*/
+/*	SKF_ReadFile														*/
+/*	SKF_WriteFile														*/
+/************************************************************************/
+
+/*
+*	创建一个文件。创建文件时要指定文件的名称，大小，以及文件的读写权限
+*	hApplication		[IN]应用句柄
+*	szFileName			[IN]文件名称，长度不得大于32个字节
+*	ulFileSize			[IN]文件大小
+*	ulReadRights		[IN]文件读权限
+*	ulWriteRights		[IN]文件写权限
+*/
+typedef ULONG (DEVAPI* SKF_CreateFile) (HAPPLICATION hApplication, LPSTR szFileName, ULONG ulFileSize, ULONG ulReadRights,ULONG ulWriteRights);
+
+/*
+*	删除指定文件，文件删除后，文件中写入的所有信息将丢失。文件在设备中的占用的空间将被释放。
+*	hApplication		[IN]要删除文件所在的应用句柄
+*	szFileName			[IN]要删除文件的名称
+*/
+typedef ULONG (DEVAPI* SKF_DeleteFile) (HAPPLICATION hApplication, LPSTR szFileName);
+/*
+*	枚举一个应用下存在的所有文件
+*	hApplication		[IN]应用的句柄
+*	szFileList			[OUT]返回文件名称列表，该参数为空，由pulSize返回文件信息所需要的空间大小。每个文件名称以单个'\0'结束，以双'\0'表示列表的结束。
+*	pulSize				[OUT]输入为数据缓冲区的大小，输出为实际文件名称的大小
+*/
+typedef ULONG (DEVAPI* SKF_EnumFiles) (HAPPLICATION hApplication, LPSTR szFileList, ULONG *pulSize);
+
+/*
+*	获取应用文件的属性信息，例如文件的大小、权限等
+*	hApplication		[IN]文件所在应用的句柄
+*	szFileName			[IN]文件名称
+*	pFileInfo			[OUT]文件信息，指向文件属性结构的指针
+*/
+typedef ULONG (DEVAPI* SKF_GetFileInfo) (HAPPLICATION hApplication, LPSTR szFileName, FILEATTRIBUTE *pFileInfo);
+
+/*
+*	读取文件内容
+*	hApplication		[IN]文件所在的应用句柄
+*	szFileName			[IN]文件名
+*	ulOffset			[IN]文件读取偏移位置
+*	ulSize				[IN]要读取的长度
+*	pbOutData			[OUT]返回数据的缓冲区
+*	pulOutLen			[OUT]输入表示给出的缓冲区大小；输出表示实际读取返回的数据大小
+*/
+typedef ULONG (DEVAPI* SKF_ReadFile) (HAPPLICATION hApplication, LPSTR szFileName, ULONG ulOffset, ULONG ulSize, BYTE * pbOutData, ULONG *pulOutLen);
+
+/*
+*	写数据到文件中
+*	hApplication		[IN]文件所在的应用句柄
+*	szFileName			[IN]文件名
+*	ulOffset			[IN]写入文件的偏移量
+*	pbData				[IN]写入数据缓冲区
+*	ulSize				[IN]写入数据的大小
+*/
+typedef ULONG (DEVAPI* SKF_WriteFile) (HAPPLICATION hApplication, LPSTR szFileName, ULONG  ulOffset, BYTE *pbData, ULONG ulSize);
+
 #ifdef __cplusplus
 }       // Balance extern "C" above
 #endif

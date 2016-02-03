@@ -363,7 +363,19 @@ typedef ULONG (DEVAPI* SKF_ReadFile) (HAPPLICATION hApplication, LPSTR szFileNam
 *	ulSize				[IN]写入数据的大小
 */
 typedef ULONG (DEVAPI* SKF_WriteFile) (HAPPLICATION hApplication, LPSTR szFileName, ULONG  ulOffset, BYTE *pbData, ULONG ulSize);
-
+/*
+获取容器的类型
+hContainer	[IN] 容器句柄。
+pulContainerType	[OUT] 获得的容器类型。指针指向的值为0表示未定、尚未分配类型或者为空容器，为1表示为RSA容器，为2表示为ECC容器。
+*/
+typedef ULONG (DEVAPI* SKF_GetContainerType)(HCONTAINER hContainer, ULONG *pulContainerType);
+/*
+*	由设备生成RSA密钥对并明文输出
+*	hDev			[IN] 设备句柄
+*	ulBitsLen		[IN] 密钥模长
+*	pBlob			[OUT] 返回的公钥数据结构
+*/
+typedef ULONG (DEVAPI* SKF_GenRSAKeyPair) (HCONTAINER hContainer, ULONG ulBitsLen, RSAPUBLICKEYBLOB *pBlob);
 #ifdef __cplusplus
 }       // Balance extern "C" above
 #endif

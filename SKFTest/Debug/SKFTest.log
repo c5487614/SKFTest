@@ -1,10 +1,13 @@
-﻿生成启动时间为 2016/2/1 16:43:29。
+﻿生成启动时间为 2016/2/3 16:38:49。
      1>项目“F:\HBCA\app2012\SKFTest\SKFTest\SKFTest.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          D:\VS2012\VC\bin\CL.exe /c /I"F:\HBCA\app2012\googletest-master\googletest\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _X86_ /D _VARIADIC_MAX=10 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SKFTest.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt SKFTest.cpp
          SKFTest.cpp
      1>f:\hbca\app2012\skftest\skftest\skftest.cpp(216): warning C4101: “szAppName”: 未引用的局部变量
      1>f:\hbca\app2012\skftest\skftest\skftest.cpp(249): warning C4101: “szAppName”: 未引用的局部变量
+     1>f:\hbca\app2012\skftest\skftest\skftest.cpp(248): warning C4101: “result”: 未引用的局部变量
+     1>f:\hbca\app2012\skftest\skftest\skftest.cpp(289): warning C4101: “fileList”: 未引用的局部变量
+     1>f:\hbca\app2012\skftest\skftest\skftest.cpp(309): warning C4101: “fileList”: 未引用的局部变量
        Link:
          D:\VS2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\HBCA\app2012\SKFTest\Debug\SKFTest.exe" /INCREMENTAL /NOLOGO "F:\HBCA\app2012\googletest-master\googletest\msvc\gtest\Debug\gtestd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\HBCA\app2012\SKFTest\Debug\SKFTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\HBCA\app2012\SKFTest\Debug\SKFTest.lib" /MACHINE:X86 Debug\SKFTest.obj
          Debug\stdafx.obj
@@ -13,4 +16,4 @@
 
 生成成功。
 
-已用时间 00:00:02.98
+已用时间 00:00:02.39
